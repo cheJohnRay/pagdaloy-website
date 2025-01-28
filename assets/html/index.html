@@ -1,0 +1,214 @@
+<?php 
+  session_start();
+  include('database.php');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <link rel="stylesheet" href="../css/map.css"/>
+     <link rel="stylesheet" href="../css/summary.css"/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+</head>
+<div id="map"></div>
+    
+<div class="modal-container" id="modal-container">
+
+    <div id="modal-popup">
+        <img id="close" src="../img/close-icon.png" alt="close">
+
+        <h1 class="modal-header">
+            <img id="custommarker-pic" src="../img/pig-icon.png" alt="custommarker">
+            Input Custom Data
+        </h1>
+
+        <div class="inputbox">
+            <label for="farmname">Farm Name:</label>
+            <input type="text" id="farmname" name="farmname">
+
+            <div class="info-inputbox">
+              <label for="sowcount">Sow:</label>
+              <input type="number" id="sow" name="sowcount" min="0">
+              <label for="boarcount">Boar:</label>
+              <input type="number" id="boar" name="boarcount" min="0">
+              <label for="fattenercount">Fattener:</label>
+              <input type="number" id="fattener" name="fattenercount" min="0">
+              <label for="pigletcount">Piglet:</label>
+              <input type="number" id="piglet" name="pigletcount" min="0">
+              <label for="nativecount">Native:</label>
+              <input type="number" id="native" name="nativecount" min="0">
+            </div>
+        </div>
+        
+        <button id="save-btn">Save</button>
+    </div>
+</div>
+
+        <div id="home">
+          <a href="../php/home.php"><img id="header-logo" src="../img/home_icon.png" alt="LOGO"></a>
+          <div id="modal"><img id="custom-modal" src="../img/add_icon.png" alt="add"></div>
+          <img id="flow-acc" src="../img/summary_icon.png" alt="">
+          <div id="clearmarker"><img id="clearme" src="../img/refresh_icon.png" alt="clearmarker"></div>
+        </div>
+
+        <div id="legend">
+          <h1>LEGEND</h1>
+          <div id="waterwayhover" class="legend-contents"><img src="../img/waterwaylegend.png" alt="">
+            <p>Waterways</p>
+          </div>
+          <div class="legend-contents"><img id="markericonlegend" src="../img/barangay-icon.png" alt="">
+            <p>Barangay</p>
+          </div>
+          <div class="legend-contents"><img id="pigfarmlegend" src="../img/pig-icon.png" alt="">
+            <p>Pig Farm</p>
+          </div>
+          <div class="legend-contents"><img id="nearestpoint" src="../img/nearestpointlegend.png" alt="">
+            <p>Closest Point</p>
+          </div>
+          <div class="legend-contents"><img src="../img/effluentflowlegend.png" alt="">
+            <p>Effluent Path</p>
+          </div>
+        </div>
+
+        <div class="container-cities">
+
+        </div>
+        
+        <div class="summary-container">
+          <div class="summary-wrapper">
+            <div class="summary-item">
+              <div class="head">
+                <h1>Summary</h1>
+                <img class='exit' src="../img/close-icon.png" alt="">
+              </div>
+              <div class="agoncillo_summary">
+                <div class="municipalities-name" id="agoncillo">Agoncillo</div>
+                <div class="barangay-container agoncillo-barangays">
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+              </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="alitagtag">Alitagtag</div>
+                <div class="barangay-container alitagtag-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="balete">Balete</div>
+                <div class="barangay-container balete-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="cuenca">Cuenca</div>
+                <div class="barangay-container cuenca-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="laurel">Laurel</div>
+                <div class="barangay-container laurel-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="mataasnakahoy">Mataas Na Kahoy</div>
+                <div class="barangay-container mataasnakahoy-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="sannicolas">San Nicolas</div>
+                <div class="barangay-container sannicolas-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="stateresita">Sta Teresita</div>
+                <div class="barangay-container stateresita-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="talisay">Talisay</div>
+                <div class="barangay-container talisay-barangays"></div>
+                  <!-- Barangays will be dynamically inserted here -->
+                </div>
+            <div class="agoncillo_summary">
+                <div class="municipalities-name" id="tanauan">Tanauan</div>
+                <div class="barangay-container tanauan-barangays"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <script>
+          // Get all municipality buttons
+          const municipalityButtons = document.querySelectorAll('.municipalities-name');
+        
+          // Function to toggle barangay container visibility
+          function toggleBarangayContainer(event) {
+            const barangayContainers = document.querySelectorAll('.barangay-container.active');
+            barangayContainers.forEach(container => {
+              container.classList.remove('active');
+            });
+        
+            const barangayContainer = event.currentTarget.nextElementSibling;
+            barangayContainer.classList.toggle('active');
+          }
+        
+          // Function to create and append barangay items to container
+          function createBarangayItems(container, barangays) {
+            barangays.forEach(barangay => {
+              const barangayItem = document.createElement('div');
+              barangayItem.classList.add('barangay-item');
+              barangayItem.textContent = barangay;
+              container.appendChild(barangayItem);
+            });
+          }
+        
+        // Sample barangays data for each municipality
+        const barangaysData = {
+          'agoncillo': ['Adia', 'Balangon', 'Bangin', 'Banyaga', 'Barigon', 'Bilibinwang', 'Coral na Munti', 'Guitna', 'Mabini', 'Pamiga', 'Panhulan', 'Pansipit', 'Poblacion', 'Pook', 'San Jacinto', 'San Teodoro', 'Santa Cruz', 'Santo Tomas', 'Subic Ibaba', 'Subic Ilaya'],
+          'alitagtag': ['Balagbag', 'Concepcion', 'Concordia', 'Dalipit East', 'Dalipit West', 'Dominador East', 'Dominador West', 'Munlawin Norte', 'Munlawin Sur', 'Muzon Primero', 'Muzon Segundo', 'Pinagkrusan', 'Ping-as', 'Poblacion East', 'Poblacion West', 'San Jose', 'Santa Jua', 'Sta Cruz', 'Tadlac'],
+          'balete': ['Alangilan', 'Calawit', 'Looc', 'Magapi', 'Makina','Malabanan','Paligawan','Palsara','Poblacion','Sala','Sampalocan','San Sebastian','Solis'],
+          'cuenca': ['Balagbag','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1'],
+          'laurel': ['Balakilong', 'Gulod', 'Leviste', 'Paliparan', 'Poblacion', 'San Gabriel', 'Santo Tomas','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1'],
+          'mataasnakahoy': ['Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1'],
+          'sannicolas': ['Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1'],
+          'stateresita': ['Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1'],
+          'talisay': ['Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1'],
+          'tanauan': ['Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1','Barangay 1'],
+          // Add other municipalities and their barangays similarly
+        };
+        
+        
+// Attach click event listeners to municipality buttons
+municipalityButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    console.log('Button clicked:', event.target.id); // Debugging statement
+    const municipalityId = event.target.id;
+    const barangayContainers = document.querySelectorAll('.barangay-container');
+    barangayContainers.forEach(container => {
+      container.innerHTML = ''; // Clear previous barangay items
+      console.log('Container class:', container.classList); // Debugging statement
+      if (container.classList.contains(`${municipalityId}-barangays`)) {
+        console.log('Container selected:', container); // Debugging statement
+        createBarangayItems(container, barangaysData[municipalityId]);
+        toggleBarangayContainer(event);
+      }
+    });
+  });
+});
+
+        </script>
+  
+      </div>
+  
+    
+
+<script src="../js/map.js"></script>
+</body>
+</html>
+

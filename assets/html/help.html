@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+
+  <html>
+  <head>
+    <title>PAGDALOY</title><meta charset="utf-8"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../img/PAGPAG.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    
+  </head>
+  <body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+
+		<!-- Header -->
+			<header id="header" class="alt"><div class="logo"><a>PAGDALOY <span>by BSU-TNEU</span></a></div>
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header><!-- Nav --><nav id="menu"><ul class="links"><li>
+          <a href="../php/home.php">HOME</a></li>
+					<li><a href="../php/index.php">I-MAP</a></li>
+					<li><a href="aboutUs.html">ABOUT US</a></li>
+				</ul></nav><!-- Banner --><!--
+			
+		--><section id="banner" >
+      <div class="inner">
+					<h1 class="pagdaloy-help-center">PAGDALOY HELP CENTER</h1>
+					<p>Browse our help center to answer questions you probably have in mind.</p>
+					<a href="#one" class="button special scrolly">GET STARTED</a>
+				</div>
+			</section><!-- One --><section id="one" class="wrapper style2"><div class="inner">
+					<div>
+						<div class="bg-body-secondary p-2 text-dark bg-opacity-10 container-fluid">
+                            <section>
+                                <h3 class="text-center fw-bold frequently-text">Frequently Asked Questions</h3>
+                                <p class="text-center mb-2">
+                                  Find the answers for the most frequently asked questions below:
+                                </p>
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Why do I need to login?
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                              <div class="accordion-body">
+                                <strong>You need to login because we need to verify if you are an authorized user in this website and you have the permission to access data.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                Why I can't see other information?
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                              <div class="accordion-body">
+                                <strong> The information is based on the place you are located. The information of other barangay/municipality is not accessible.
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                What technology is used for mapping piggeries and tributaries along Taal Lake? 
+
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                              <div class="accordion-body">
+                                <strong>We utilize Geographic Information System (GIS) technology that enables the system to analyze, visualize, and interpret spatial data related to piggeries and tributaries in the municipalities around the Taal Lake. 
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                                How do I create an account?
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                              <div class="accordion-body">
+                                <strong> Unfortunately, the account is pre-made in the database, and you must be an authorized person to have accessed to it.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                                Can I contribute data in the mapping?
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+                              <div class="accordion-body">
+                                <strong>Yes. If you have an account, you can add custom data once you have access in our interactive map. We encourage users to contribute accurate data and report if they have any inaccuracies they encounter.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                                Is the mapping available for download or export?
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+                              <div class="accordion-body">
+                                <strong>Downloading or exporting mapping data is not available because the information indicated in this website are strictly confidential. 
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>        
+					</div>
+				</div>
+			</section>
+
+			</section><!-- Four -->
+      <section id="four" class="wrapper style3">
+        <div class="inner">
+					<header class="align-center">
+            <h1 class="further-assistance">NEED FURTHER ASSISTANCE?</h1>
+						<p><i>Contact us using the message form below</i></p>
+					</header></div>
+			</section><!-- Footer --><section id="footer" class="wrapper">
+        <div class="inner">
+					<section>
+            <div class="box">
+							<div class="content">
+								<h2 class="align-center fw-bold">Get in Touch</h2>
+								<hr><form action="" method="post">
+                  <div class="field">
+                    <label for="municipality">Municipality</label>
+                    <div class="select-wrapper">
+                        <select name="municipality" id="municipality" class="item error" autocomplete="off" onchange= "getSelectedValue();" required>
+                            <option value="">- Select Municipality -</option>
+                            <option value="Agoncillo">Agoncillo</option>
+                            <option value="Alitagtag">Alitagtag</option>
+                            <option value="Balete">Balete</option>
+                            <option value="Cuenca">Cuenca</option>
+                            <option value="Laurel">Laurel</option>
+                            <option value="Mataas Na Kahoy">Mataas Na Kahoy</option>
+                            <option value="San Nicolas">San Nicolas</option>
+                            <option value="Sta. Teresita">Sta. Teresita</option>
+                            <option value="Talisay">Talisay</option>
+                            <option value="Tanauan">Tanauan</option>
+                        </select>
+                        <div class="error-text">
+                         Municipality cannot be blank
+                        </div>
+                    </div>
+                </div>
+                  <div class="field half first">
+                      <label for="subject">Subject</label>
+                      <input name="subject" id="subject" type="text" placeholder="Concern" class="item error" autocomplete="off">
+                      <div class="error-text">
+                        Subject cannot be blank
+                      </div>
+                  </div>
+                  <div class="field half">
+                      <label for="email">Email</label>
+                      <input name="email" id="email" type="email" placeholder="youremail@gmail.com" class="item error" autocomplete="off">
+                      <div class="error-text email">
+                        Email address cannot be blank
+                      </div>
+                  </div>
+                
+                  <div class="field">
+                      <label for="message">Message</label>
+                      <textarea name="message" id="message" rows="6" placeholder="Message" class="item error" autocomplete="off" value="message"></textarea>
+                      <div class="error-text">
+                        Message cannot be blank
+                      </div>
+                  </div>
+                  <ul class="actions align-center">
+                      <li><input value="Send Message" class="button special" type="submit"></li>
+                  </ul>
+              </form>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery.scrolly.min.js"></script>
+  <script src="../js/jquery.scrollex.min.js"></script>
+  <script src="../js/skel.min.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/color-modes.js"></script>
+
+ 
+</body>
+</html>
