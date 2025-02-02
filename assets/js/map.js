@@ -4,7 +4,7 @@ var map = L.map('map', {
   zoomControl: false,
 });
 
-
+// Add zoom control to the bottom right corner
 var MyControl = L.Control.extend({
     options: {
         position: 'topright'
@@ -183,55 +183,55 @@ var MyControl = L.Control.extend({
     
 });
 function fetchAndDisplayBarangayShape(municipality_code, barangay, map) {
-  clearShapeLayers();
-  const geojsonURL = `../../geojson_files/Shapefiles.geojson`;
-  fetch(geojsonURL)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.json();
-      })
-      .then(geojsonData => {
-          console.log('GeoJSON data:', geojsonData); // Debugging statement
+clearShapeLayers();
+const geojsonURL = `../../geojson_files/Shapefiles.geojson`;
+fetch(geojsonURL)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(geojsonData => {
+        console.log('GeoJSON data:', geojsonData); // Debugging statement
 
-          // Filter the GeoJSON data based on municipality and barangay
-          const filteredFeatures = geojsonData.features.filter(feature => {
-              // Assuming barangay property is stored in feature.properties.ADM4_EN
-              return feature.properties.ADM4_EN === barangay && feature.properties.Municipality_Code === municipality_code;
-          });
+        // Filter the GeoJSON data based on municipality and barangay
+        const filteredFeatures = geojsonData.features.filter(feature => {
+            // Assuming barangay property is stored in feature.properties.ADM4_EN
+            return feature.properties.ADM4_EN === barangay && feature.properties.Municipality_Code === municipality_code;
+        });
 
-          // Clear existing barangay layer group
-          barangayLayerGroup.clearLayers();
+        // Clear existing barangay layer group
+        barangayLayerGroup.clearLayers();
 
-          // Add filtered features to the map with different colors based on barangay
-          filteredFeatures.forEach(feature => {
-              // Assign a random color for each barangay
-              const randomColor = getRandomColor();
+        // Add filtered features to the map with different colors based on barangay
+        filteredFeatures.forEach(feature => {
+            // Assign a random color for each barangay
+            const randomColor = getRandomColor();
 
-              // Add GeoJSON feature with specified color
-              L.geoJSON(feature, {
-                  style: {
-                      fillColor: randomColor,
-                      color: randomColor,
-                      weight: 4
-                  }
-              }).addTo(barangayLayerGroup);
-          });
+            // Add GeoJSON feature with specified color
+            L.geoJSON(feature, {
+                style: {
+                    fillColor: randomColor,
+                    color: randomColor,
+                    weight: 4
+                }
+            }).addTo(barangayLayerGroup);
+        });
 
-       
+    
 
-          // Add the barangay layer group to the map
-          barangayLayerGroup.addTo(map);
-      })
-      .catch(error => {
-          console.error('Error fetching and displaying barangay shape:', error);
-      });
+        // Add the barangay layer group to the map
+        barangayLayerGroup.addTo(map);
+    })
+    .catch(error => {
+        console.error('Error fetching and displaying barangay shape:', error);
+    });
 }
 
 
 var myControl = new MyControl();
-myControl.addTo(map);
+myControl.addTo(map); // Add the custom control to the map
 
 // Declare an array to store all markers
 let allMarkers = [];
@@ -272,8 +272,8 @@ function getMarkerByFarmName(farmName) {
 
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -283,16 +283,16 @@ attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, 
 
 L.control.layers({
 "Satellite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  maxZoom: 17,
-  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    maxZoom: 17,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }),
 "Street Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }),
 "Topography": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-  maxZoom: 17,
-  attribution: 'Map data: &copy; OpenTopoMap contributors, SRTM | Map style: &copy; OpenTopoMap'
+    maxZoom: 17,
+    attribution: 'Map data: &copy; OpenTopoMap contributors, SRTM | Map style: &copy; OpenTopoMap'
 })
 }).addTo(map);
 
@@ -307,35 +307,35 @@ var markersByMunicipality = {}; // Ensure this is declared in an accessible scop
 var markersByBarangay = {};
 var shapeLayers = {}; // Object to hold shape layers by municipality
 var municipalityCoordinates = {
-  "Balete": [14.03193, 121.095428],
-  "Agoncillo" : [13.963389, 120.925484],
-  "Alitagtag": [13.862914, 121.016121],
-  "Cuenca": [13.90461431313024, 121.05597251881868],
-  "Laurel": [14.05213019982489, 120.90732456456205],
-  "Mataas Na Kahoy": [13.979085952016785, 121.09739159746668],
-  "San Nicolas": [13.919965859758854, 120.94770603976525],
-  "Sta. Teresita": [13.875449936908929, 120.97140159298453],
-  "Talisay": [14.106513571117576, 121.01920986439174],
-  "Tanauan": [14.09888862387092, 121.09632379483912]
+    "Balete": [14.03193, 121.095428],
+    "Agoncillo" : [13.963389, 120.925484],
+    "Alitagtag": [13.862914, 121.016121],
+    "Cuenca": [13.90461431313024, 121.05597251881868],
+    "Laurel": [14.05213019982489, 120.90732456456205],
+    "Mataas Na Kahoy": [13.979085952016785, 121.09739159746668],
+    "San Nicolas": [13.919965859758854, 120.94770603976525],
+    "Sta. Teresita": [13.875449936908929, 120.97140159298453],
+    "Talisay": [14.106513571117576, 121.01920986439174],
+    "Tanauan": [14.09888862387092, 121.09632379483912]
 };
 
 
-
+// Function to display markers on the map
 function clearMarkers() {
-  for (var municipality in markersByMunicipality) {
-    markersByMunicipality[municipality].forEach(marker => {
-      map.removeLayer(marker);
-    });
-  }
-  for (var municipality in shapeLayers) {
-    map.removeLayer(shapeLayers[municipality]);
-  }
+    for (var municipality in markersByMunicipality) {
+        markersByMunicipality[municipality].forEach(marker => {
+        map.removeLayer(marker);
+        });
+    }
+    for (var municipality in shapeLayers) {
+        map.removeLayer(shapeLayers[municipality]);
+    }
 
-  for (var barangay in markersByBarangay) {
-    markersByBarangay[barangay].forEach(marker => {
-      map.removeLayer(marker);
-    });
-  }
+    for (var barangay in markersByBarangay) {
+        markersByBarangay[barangay].forEach(marker => {
+        map.removeLayer(marker);
+        });
+    }
 }
 
 // Define the Leaflet layer group for barangay shapes
@@ -346,28 +346,28 @@ function getRandomColor(background) {
   // Define minimum contrast ratio (0-21, where 0 is no contrast and 21 is maximum contrast)
   const minContrastRatio = 21; // Adjust this value as needed
 
-  // Function to calculate contrast ratio between two colors
-  function contrastRatio(color1, color2) {
-      // Convert hex color to RGB
-      const rgb1 = parseInt(color1.substring(1), 16);
-      const r1 = (rgb1 >> 16) & 0xff;
-      const g1 = (rgb1 >>  8) & 0xff;
-      const b1 = (rgb1 >>  0) & 0xff;
+// Function to calculate contrast ratio between two colors
+function contrastRatio(color1, color2) {
+    // Convert hex color to RGB
+    const rgb1 = parseInt(color1.substring(1), 16);
+    const r1 = (rgb1 >> 16) & 0xff;
+    const g1 = (rgb1 >>  8) & 0xff;
+    const b1 = (rgb1 >>  0) & 0xff;
 
-      const rgb2 = parseInt(color2.substring(1), 16);
-      const r2 = (rgb2 >> 16) & 0xff;
-      const g2 = (rgb2 >>  8) & 0xff;
-      const b2 = (rgb2 >>  0) & 0xff;
+    const rgb2 = parseInt(color2.substring(1), 16);
+    const r2 = (rgb2 >> 16) & 0xff;
+    const g2 = (rgb2 >>  8) & 0xff;
+    const b2 = (rgb2 >>  0) & 0xff;
 
       // Calculate luminance for each color
       const luminance1 = 0.2126 * r1 + 0.7152 * g1 + 0.0722 * b1;
       const luminance2 = 0.2126 * r2 + 0.7152 * g2 + 0.0722 * b2;
 
       // Calculate contrast ratio
-      const contrast = (Math.max(luminance1, luminance2) + 0.05) / (Math.min(luminance1, luminance2) + 0.05);
+    const contrast = (Math.max(luminance1, luminance2) + 0.05) / (Math.min(luminance1, luminance2) + 0.05);
 
-      return contrast;
-  }
+    return contrast;
+}
 
   // Generate a random color
   let color = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -788,6 +788,8 @@ function deleteMarker(farmName, markerId) {
       }
       location.reload();
   })
+
+  
   .catch(error => {
       console.error('Error deleting data:', error);
       // Handle deletion errors
@@ -1022,9 +1024,10 @@ document.querySelector("#clearmarker").addEventListener("click", function () {
 // Initialize waterwaysLayer variable
 let waterwaysLayer;
 
+
 // Define the initial style for the waterways layer
 const initialWaterwaysStyle = {
-    color: '#0000CD', // Default blue color
+    color: '#0000CD',
     weight: 3, // Change the line weight
 };
 
@@ -1204,7 +1207,7 @@ function findNearestWaterway(markerLatLng) {
     });
 
     return nearestWaterway;
-}
+}C
 
 // Fetch marker coordinates from the API
 function displayMarkers(municipality_code) {
@@ -1261,7 +1264,7 @@ function highlightNearbyWaterways(markerLatLng, markerData) {
             // Check if totalVolume is greater than 0
             calculateTotalDischarge(nearestWaterway.feature)
                 .then(totalDischarge => {
-                    if (totalDischarge > 0) {
+                    if (totalDischarge > 0) { 
                         nearestWaterway.setStyle({ color: 'red' });
                     }
                 })
@@ -1272,7 +1275,7 @@ function highlightNearbyWaterways(markerLatLng, markerData) {
     }
 }
 
-
+// Function to reset the style of all waterways
 function resetNearbyWaterways() {
     waterwaysLayer.eachLayer(layer => {
         layer.setStyle({ color: '#0000CD' });
@@ -1321,41 +1324,79 @@ function updateLegend(event, iconSrc, name) {
       resetMarkersVisibility();
       return;
   }
+  
 
-  if (name === 'Volcanic Stream') {
-      // Change the style of waterways with the name "Volc Stream"
-      waterwaysLayer.eachLayer(function(layer) {
-          if (layer.feature.properties.name.startsWith('Volc Stream')) {
-              layer.setStyle({
-                  color: '#FFA500', // Orange color
-                  weight: 3, // Change the line weight
-              });
-          }
-      });
-  } else if (name === 'Degraded Waterways') {
-      // Change the style of waterways with the status "degraded"
-      waterwaysLayer.eachLayer(function(layer) {
-          if (layer.feature.properties.status && layer.feature.properties.status.toLowerCase() === 'degraded') {
-              layer.setStyle({
-                  color: '#F2613F', // Color for degraded waterways
-                  weight: 3, // Change the line weight
-              });
-          }
-      });
-  } else if (name === 'Barangay') {
-      toggleMarkersVisibility('../img/barangay-icon.png', true);
-      toggleMarkersVisibility('../img/pig-icon.png', false);
-  } else if (name === 'Pig Farm') {
-      toggleMarkersVisibility('../img/pig-icon.png', true);
-      toggleMarkersVisibility('../img/barangay-icon.png', false);
-  } else if (name === 'Discharge Path') {
-      // Change the icon and name for Discharge Path
-      legendIcon.src = '../img/degraded.png';
-      legendName.textContent = 'Degraded Waterways';
-  }
+
+// Highlight volcanic streams in orange
+if (name === 'Volcanic Stream') {
+    // Change the style of waterways with the name "Volc Stream"
+    waterwaysLayer.eachLayer(function(layer) {
+        if (layer.feature.properties.name.startsWith('Volc Stream')) {
+            layer.setStyle({
+                color: '#FFA500', // Orange color
+                weight: 3, // Change the line weight
+            });
+        }else (
+            layer.setStyle({
+                color: '#0000CD', // Default blue color
+                weight: 3 // Default weight
+            })
+        )
+    });
+
+} else if (name === 'Degraded Waterways') {
+    // Change the style of waterways with the status "degraded"
+    waterwaysLayer.eachLayer(function(layer) {
+        if (layer.feature.properties.status && layer.feature.properties.status.toLowerCase() === 'degraded') {
+            layer.setStyle({
+                color: '#F2613F', // Color for degraded waterways
+                weight: 3, // Change the line weight
+            });
+        } else (
+            layer.setStyle({
+                color: '#0000CD', // Default blue color
+                weight: 3 // Default weight
+            })
+        )
+    });
+} else if (name === 'Discharge Path') {
+    // Change the style of waterways with the status "discharge path"
+    waterwaysLayer.eachLayer(function(layer) {
+        if (layer.feature.properties.status && layer.feature.properties.status.toLowerCase() === 'degraded') {
+            layer.setStyle({
+                color: '#FF0000', // Color for discharge path
+                weight: 3, // Change the line weight
+            });
+            
+        } else (
+            layer.setStyle({
+                color: '#0000CD', // Default blue color
+                weight: 3 // Default weight
+            })
+        )
+    });
+} else if (name === 'Barangay') {
+    toggleMarkersVisibility('../img/barangay-icon.png', true);
+    toggleMarkersVisibility('../img/pig-icon.png', false);
+} else if (name === 'Pig Farm') {
+    toggleMarkersVisibility('../img/pig-icon.png', true);
+    toggleMarkersVisibility('../img/barangay-icon.png', false);
+} else if (name === 'Discharge Path') {
+    // Change the icon and name for Discharge Path
+    legendIcon.src = '../img/effluentflow.png';
+    legendName.textContent = 'Discharge Path';
+}else {
+    // Reset the style of all waterways
+    waterwaysLayer.eachLayer(function(layer) {
+        layer.setStyle({
+            color: '#0000CD', // Default blue color
+            weight: 3 // Default weight
+        });
+    });
+} 
 }
 
-
+// Function to toggle the visibility of markers based on the icon URL
 function toggleMarkersVisibility(iconUrl, visible) {
     map.eachLayer(function(layer) {
         if (layer.options.icon && layer.options.icon.options.iconUrl === iconUrl) {
@@ -1363,7 +1404,7 @@ function toggleMarkersVisibility(iconUrl, visible) {
         }
     });
 }
-
+// Function to reset the visibility of all markers
 function resetMarkersVisibility() {
     map.eachLayer(function(layer) {
         if (layer.options.icon) {
@@ -1377,7 +1418,7 @@ function resetLegend(event) {
   var legendName = event.currentTarget.querySelector('p');
 
   // Reset waterways style if the legend being reset is not 'Barangay', 'Pig Farm', 'Closest Point', or 'Discharge Path'
-  if (legendName.textContent !== 'Discharge Path' && legendName.textContent !== 'Waterways' && legendName.textContent !== 'Pig Farm' && legendName.textContent !== 'Closest Point' && legendName.textContent !== 'Barangay' && legendName.textContent !== 'Degraded Waterways' ) {
+  if (legendName.textContent !== 'Discharge Path' && legendName.textContent !== 'Waterways' && legendName.textContent !== 'Pig Farm' && legendName.textContent !== 'Closest Point' && legendName.textContent !== 'Barangay' && legendName.textContent !== 'Degraded Waterways'  && legendName.textContent !== 'Volcanic Stream') {
       legendIcon.src = '../img/waterwaylegend.png'; // Change this to your default icon path
       legendName.textContent = 'Waterways';
 
@@ -1387,15 +1428,15 @@ function resetLegend(event) {
           weight: 3 // Default weight
       });
   }
-  if (legendName.textContent !== 'Discharge Path' && legendName.textContent !== 'Waterways' && legendName.textContent !== 'Pig Farm' && legendName.textContent !== 'Closest Point' && legendName.textContent !== 'Barangay' && legendName.textContent !== 'Volcanic Stream' ) {
-    legendIcon.src = '../img/effluentflowlegend.png'; // Change this to your default icon path
-    legendName.textContent = 'Discharge Path';
+//   if (legendName.textContent !== 'Discharge Path' && legendName.textContent !== 'Waterways' && legendName.textContent !== 'Pig Farm' && legendName.textContent !== 'Closest Point' && legendName.textContent !== 'Barangay' && legendName.textContent !== 'Degraded Waterways' && legendName.textContent !== 'Volcanic Stream' ) {
+//     legendIcon.src = '../img/effluentflowlegend.png'; // Change this to your default icon path
+//     legendName.textContent = 'Discharge Path';
 
-    waterwaysLayer.setStyle({
-      color: '#0000CD', // Default blue color
-      weight: 3 // Default weight
-  });
-  }
+//     waterwaysLayer.setStyle({
+//       color: '#0000CD', // Default blue color
+//       weight: 3 // Default weight
+//   });
+//   }
 }
 
 

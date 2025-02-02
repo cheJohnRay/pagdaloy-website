@@ -79,15 +79,20 @@ body {
 }
 
 .legend-contents {
+    text-align: left;
     font-family: 'Raleway', sans-serif;
     color: #000;
     padding: 0.5rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     font-weight: bold;
+    padding-left: 15px;
 }
+
+
+
 
 .legend-contents > img {
     width: 50px;
@@ -101,11 +106,22 @@ body {
 }
 
 .legend-contents:hover {
+
     cursor: pointer;
     font-weight: bold;
     transition: all 0.2s;
     transform: scale(1.2);
+    width: max-content;
+    /* background-color: rgba(200, 200, 200, 0.3); */
 }
+
+
+
+#classification-2 p {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
 
 .inputbox {
     display: flex;

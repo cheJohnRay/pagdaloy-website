@@ -94,7 +94,7 @@ endif;
       <div class="col-4 text-center">
         <a class="blog-header-logo text-body-emphasis text-decoration-none" >PAGDALOY</a>
       </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
+      <div class="col-4 d-flex justify-content-end align-items-center" >
         <a href="logout.php" class="btn btn-sm btn-outline-secondary" type="button" id="logout">LOGOUT</a>
       </div>
     </div>
@@ -110,7 +110,7 @@ endif;
 </div>
 
 <main class="container">
-  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis" style="background-color: #05161a;">
     <div class="col-lg-6 px-0">
       <h1 class="display-4 fst-italic">PAGDALOY</h1>
       <p class="lead my-3">DISCOVERING THE WAY TO
@@ -121,28 +121,32 @@ endif;
 
   <div class="row mb-2">
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
-        <div class="col p-4 d-flex flex-column position-static">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative bg-body-secondary align-items-stretch" style="--bs-bg-opacity: .5;">
+        <div class="col p-4 d-flex flex-column position-static flex-grow-1">
           <strong class="d-inline-block mb-2 text-primary-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">AGONCILLO</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.agoncillo.gov.ph/" target="_blank" rel="noopener noreferrer">AGONCILLO</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
-          <p class="card-text mb-auto">The Municipality of Agoncillo has a land area of 19.29 square kilometers and a total of 21 barangays. </p>
+          <p class="card-text mb-auto d-flex flex-grow-1">The Municipality of Agoncillo has a land area of 19.29 square kilometers and a total of 21 barangays. It is situated on the 
+            western shore of Taal Lake, offering scenic views of the famous volcanic lake. It was named after Don Felipe Agoncillo, a prominent Filipino diplomat and 
+            revolutionary. The town's economy is driven by agriculture, fishing, and growing tourism.</p>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="mb-4" src="../img/AGONCILLIO.jpg" width="200" height="250">
+        <div class="col-auto d-none d-lg-flex d-flex align-items-end justify-content-center">
+          <img class="mb-4 me-2" style="border-radius:15px;" src="../img/AGONCILLIO.jpg" width="205" height="210">
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
-        <div class="col p-4 d-flex flex-column position-static">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative bg-body-secondary align-items-stretch" style="--bs-bg-opacity: .5;">
+        <div class="col p-4 d-flex flex-column position-static flex-grow-1">
           <strong class="d-inline-block mb-2 text-success-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">ALITAGTAG</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.alitagtag.gov.ph/" target="_blank" rel="noopener noreferrer">ALITAGTAG</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
-          <p class="mb-auto">The Municipality of Alitagtag has a land area of 24.76 square kilometers and a total of 19 barangays.</p>
+          <p class="card-text mb-auto d-flex flex-grow-1">The Municipality of Alitagtag has a land area of 24.76 square kilometers and a total of 19 barangays. The town thrives on agriculture, 
+            with rice, coffee, and fruit farming being major sources of livelihood. One of the town's most significant celebrations is the May Flower Festival, which 
+            features colorful processions, floral offerings, and traditional Filipino religious customs.</p>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="mb-4" src="../img/ALITAGTAG.JPG" width="200" height="250">
+        <div class="col-auto d-none d-lg-flex d-flex align-items-end justify-content-center">
+          <img class="mb-4 me-2" style="border-radius:15px;" src="../img/ALITAGTAG.JPG" width="205" height="210">
         </div>
       </div>
     </div>
@@ -150,52 +154,61 @@ endif;
 
   <div class="row mb-2">
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
-        <div class="col p-4 d-flex flex-column position-static">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative align-items-stretch" style="background-color: rgba(41, 77, 106, 0.5);">
+        <div class="col p-4 d-flex flex-column position-static flex-grow-1">
           <strong class="d-inline-block mb-2 text-primary-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">BALETE</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.baletebatangas.gov.ph/" target="_blank" rel="noopener noreferrer">BALETE</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
-          <p class="card-text mb-auto">The Municipality of Balete has a land area of 25.00 kilometers and a total of 13 barangays.</p>
+          <p class="card-text mb-auto d-flex flex-grow-1">
+            The Municipality of Balete has a land area of 25.00 kilometers and a total of 13 barangays. The town is renowned for its agricultural 
+            activities, particularly farming and fishing, thanks to its proximity to Taal Lake. It is known for its delicious local delicacies, 
+            such as Lomi and Bagoong Balayan. Locals also enjoy Puto(steamed rice cakes), and Suman (sticky rice wrapped in banana leaves).
+          </p>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="mb-4" src="../img/BALETE.jpg" width="200" height="250">
+        <div class="col-auto d-none d-lg-flex d-flex align-items-end justify-content-center">
+          <img class="mb-4 me-2" style="border-radius:15px;" src="../img/BALETE.jpg" width="205" height="210">
         </div>
       </div>
     </div>
+
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
-        <div class="col p-4 d-flex flex-column position-static">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative align-items-stretch" style="background-color: rgba(41, 77, 106, 0.5);;">
+        <div class="col p-4 d-flex flex-column position-static flex-grow-1">
           <strong class="d-inline-block mb-2 text-success-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">CUENCA</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.philatlas.com/luzon/r04a/batangas/cuenca.html" target="_blank" rel="noopener noreferrer">CUENCA</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
-          <p class="mb-auto">The Municipality of Cuenca has a land area of 58.18 square kilometers and a total of 21 barangays.</p>
+          <p class="card-text mb-auto d-flex flex-grow-1">The Municipality of Cuenca has a land area of 58.18 square kilometers and a total of 21 barangays. It is located near the slopes of Mount Maculot, 
+            a popular hiking destination that offers breathtaking views of Taal Volcano and the surrounding areas. Additionally, it is known for producing high-quality agricultural 
+            products, particularly vegetables, which contribute to the local economy.</p>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="mb-4" src="../img/CUENCA.jpg" width="200" height="250">
-        </div>
+          <div class="col-auto d-none d-lg-flex d-flex align-items-end justify-content-center">
+            <img class="mb-4 me-2" style="border-radius:15px;" src="../img/CUENCA.jpg" width="205" height="210">
+          </div>
       </div>
     </div>
   </div>
 
   <div class="row mb-2">
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
-        <div class="col p-4 d-flex flex-column position-static">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative align-items-stretch" style="background-color: rgba(41, 77, 106, 0.5);;">
+        <div class="col p-4 d-flex flex-column position-static flex-grow-1">
           <strong class="d-inline-block mb-2 text-primary-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">LAUREL</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.laurelbatangas.gov.ph/" target="_blank" rel="noopener noreferrer">LAUREL</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
-          <p class="card-text mb-auto">The Municipality of Laurel has a land area of 71.29 square kilometers and a total of 21 barangays.</p>
+          <p class="card-text mb-auto d-flex flex-grow-1">The Municipality of Laurel has a land area of 71.29 square kilometers and a total of 21 barangays. It is nestled along the shores 
+            of Taal Lake, offering stunning views of Taal Volcano. The town is also home to Ambon-Ambon Falls and Malagaslas Spring. Laurel is also an agricultural hub, producing high-quality 
+            coffee, bananas, and root crops that support the local economy.</p>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="mb-4" src="../img/LAUREL.jpg" width="200" height="250">
+        <div class="col-auto d-none d-lg-flex align-items-end justify-content-center">
+          <img class="mb-4 mt-4 me-2" style="border-radius:15px;" src="../img/LAUREL.jpg" width="205" height="210">
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: rgba(41, 77, 106, 0.5);;">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">MATAAS NA KAHOY</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.philatlas.com/luzon/r04a/batangas/mataasnakahoy.html" target="_blank" rel="noopener noreferrer">MATAAS NA KAHOY</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
           <p class="mb-auto">The Municipality of Mataas na Kahoy has a land area of 19.66 kilometers and a total of 16 barangays.</p>
         </div>
@@ -208,10 +221,10 @@ endif;
 
   <div class="row mb-2">
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: rgba(41, 77, 106, 0.5);;">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">SAN NICOLAS</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.philatlas.com/luzon/r04a/batangas/san-nicolas.html" target="_blank" rel="noopener noreferrer">SAN NICOLAS</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
           <p class="card-text mb-auto">The Municipality of San Nicholas has a land area of 22.61 square kilometers and a total of 18 barangays.</p>
         </div>
@@ -221,10 +234,10 @@ endif;
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:rgba(41, 77, 106, 0.5);;">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">SANTA TERESITA</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://stateresitabatangas.gov.ph/" target="_blank" rel="noopener noreferrer">SANTA TERESITA</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
           <p class="mb-auto">The Municipality of Santa Teresita has a land area of 16.30 square kilometers and a total of 17 barangays.</p>
         </div>
@@ -237,10 +250,10 @@ endif;
 
   <div class="row mb-2">
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:rgba(41, 77, 106, 0.5);;">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">TALISAY</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://www.talisaybatangas.gov.ph/" target="_blank" rel="noopener noreferrer">TALISAY</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
           <p class="card-text mb-auto">The Municipality of Talisay has a land area of 28.20 kilometers and a total of 21 barangays.</p>
         </div>
@@ -250,10 +263,10 @@ endif;
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-body-secondary" style="--bs-bg-opacity: .5;">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:rgba(41, 77, 106, 0.5);;">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success-emphasis">PAGDALOY</strong>
-          <h3 class="mb-0">TANAUAN</h3>
+          <h3 class="mb-0 municipality"><a class="municipality-link" href="https://tanauancity.gov.ph/" target="_blank" rel="noopener noreferrer">TANAUAN</a></h3>
           <div class="mb-1 text-body-secondary">Batangas</div>
           <p class="mb-auto">The City of Tanauan has a land area of 107.16 square kilometers and a total of 48 barangays.</p>
         </div>
@@ -271,7 +284,7 @@ endif;
         Browse for more information
       </h3>
 
-      <article class="blog-post rounded bg-body-secondary" style="--bs-bg-opacity: .5;">
+      <article class="blog-post rounded" style="background-color: rgba(7, 46, 51, 0.5);">
         <h2 class="display-5 link-body-emphasis m-2">GEOGRAPHIC INFORMATION SYSTEM (GIS)</h2>
         <br>
         <p class="m-2">Geographic Information System (GIS) is a computer system that used as a tool for capturing, storing, checking, and displaying data related to the position on Earth's surface.</p>
@@ -303,7 +316,7 @@ endif;
 
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
-        <div class="p-4 mb-3 bg-body-tertiary rounded">
+        <div class="p-4 mb-3 rounded" style="background-color: rgba(5, 22, 26, 0.8);">
           <h4 class="fst-italic">TAAL LAKE</h4>
           <p class="mb-0">A lake in southwestern Luzon that occupies a volcanic crater with a maximum width of 24 km and less than 10 feet above sea level. It is the country's third largest lake and has erupted more than 34 times since 1572. There are 37 tributaries of thirteen municipalities and three cities along the lake. In addition, a part of Pansipit River serves as the Taal's Lake only outlet to Balayan Bay.</p>
         </div>
